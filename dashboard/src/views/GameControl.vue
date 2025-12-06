@@ -241,13 +241,13 @@ const finishedLeaderboard = computed(() => {
     globalByCode[gp.code] = gp
   }
   return (currentGame.value?.players || [])
-    .map(p => ({
+    .map((p: any) => ({
       playerId: p.playerId,
       score: p.score || 0,
       code: p.code,
       name: p.teamName || p.name || globalByCode[p.code]?.teamName || globalByCode[p.code]?.name
     }))
-    .sort((a, b) => b.score - a.score)
+    .sort((a: any, b: any) => b.score - a.score)
 })
 
 let tickListener: ((data: any) => void) | null = null
